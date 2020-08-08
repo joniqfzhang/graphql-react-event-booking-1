@@ -1,5 +1,5 @@
 
-POST http://localhost:3000/graphql
+POST http://localhost:8000/graphql
 content-type: application/json
 X-REQUEST-TYPE: GraphQL
 
@@ -22,7 +22,7 @@ query{
 ###
 POST http://localhost:3000/graphql
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjIxMzdiOTNkYTkyNzdhYzg3YTg2MGUiLCJlbWFpbCI6InVzZXIucGFzc0BnbWFpbC5jb20iLCJpYXQiOjE1OTYxOTM3ODcsImV4cCI6MTU5NjE5NzM4N30.bZlCKAC86RI20D-a1CfjfffywQo0ldsRI8LC_MeSMzE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjIxMzdiOTNkYTkyNzdhYzg3YTg2MGUiLCJlbWFpbCI6InVzZXIucGFzc0BnbWFpbC5jb20iLCJpYXQiOjE1OTYyMzcxMjYsImV4cCI6MTU5NjI0MDcyNn0.ChwlqAgknw8uA6XkrqSV9DtUyyBY9UhooLRll5xXG8o
 X-REQUEST-TYPE: GraphQL
 
 query {
@@ -66,7 +66,7 @@ query {
 
 POST http://localhost:3000/graphql
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjIxMzdiOTNkYTkyNzdhYzg3YTg2MGUiLCJlbWFpbCI6InVzZXIucGFzc0BnbWFpbC5jb20iLCJpYXQiOjE1OTYxOTM3ODcsImV4cCI6MTU5NjE5NzM4N30.bZlCKAC86RI20D-a1CfjfffywQo0ldsRI8LC_MeSMzE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjI3YzA3MTAyYTkzOTY2MDA5ZGM3YzciLCJlbWFpbCI6InRlc3RhYmNAZ21haWwuY29tIiwiaWF0IjoxNTk2NjE4NzgxLCJleHAiOjE1OTY2MjIzODF9.bPeU_GZzruzoMvxTewWCxYSq8-WSejn4avo54bxE9R0
 X-REQUEST-TYPE: GraphQL
 
  mutation {
@@ -99,23 +99,26 @@ query {
 ###
 POST http://localhost:3000/graphql
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjIxMzdiOTNkYTkyNzdhYzg3YTg2MGUiLCJlbWFpbCI6InVzZXIucGFzc0BnbWFpbC5jb20iLCJpYXQiOjE1OTYxOTM3ODcsImV4cCI6MTU5NjE5NzM4N30.bZlCKAC86RI20D-a1CfjfffywQo0ldsRI8LC_MeSMzE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjI3YzA3MTAyYTkzOTY2MDA5ZGM3YzciLCJlbWFpbCI6InRlc3RhYmNAZ21haWwuY29tIiwiaWF0IjoxNTk2NjE4NzgxLCJleHAiOjE1OTY2MjIzODF9.bPeU_GZzruzoMvxTewWCxYSq8-WSejn4avo54bxE9R0
 X-REQUEST-TYPE: GraphQL
 
 mutation {
-  cancelBooking(bookingId: "5f22aefbcb170225183c9a3f") {
+  cancelBooking(bookingId: "5f214deacf6db667ac018554") {
     title
   }
 }
 
 ###
-POST http://localhost:3000/graphql
+POST http://localhost:8000/graphql
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjIxMzdiOTNkYTkyNzdhYzg3YTg2MGUiLCJlbWFpbCI6InVzZXIucGFzc0BnbWFpbC5jb20iLCJpYXQiOjE1OTYxOTM3ODcsImV4cCI6MTU5NjE5NzM4N30.bZlCKAC86RI20D-a1CfjfffywQo0ldsRI8LC_MeSMzE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjI3YzA3MTAyYTkzOTY2MDA5ZGM3YzciLCJlbWFpbCI6InRlc3RhYmNAZ21haWwuY29tIiwiaWF0IjoxNTk2NjkzODUzLCJleHAiOjE1OTY2OTc0NTN9.AObGNMViPVmheYplYMR6-lvfmUVAu0TrXSticRKlc3E
 X-REQUEST-TYPE: GraphQL
 
 mutation {
-  bookEvent(eventId:"5f215109989ca04c7c26caac"){
+  bookEvent(eventId:"5f214deacf6db667ac018554"){
+    _id
+    createdAt
+    updatedAt
     event{
       title
       creator{
@@ -128,6 +131,84 @@ mutation {
       createdEvents{
         description
       }
+    }
+  }
+}
+
+
+###
+POST http://localhost:8000/graphql
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjI3YzA3MTAyYTkzOTY2MDA5ZGM3YzciLCJlbWFpbCI6InRlc3RhYmNAZ21haWwuY29tIiwiaWF0IjoxNTk2NjkzODUzLCJleHAiOjE1OTY2OTc0NTN9.AObGNMViPVmheYplYMR6-lvfmUVAu0TrXSticRKlc3E
+X-REQUEST-TYPE: GraphQL
+
+ mutation {
+  createEvent(eventInput: {title:"${title}", description:"${description}", price:9.99, date:"2020-07-31T03:07:08.338Z"}) {
+    _id
+    title
+    description
+    price
+    date
+    creator{
+      _id
+      email
+    }
+  }
+}
+
+###
+POST http://localhost:8000/graphql
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjI3YzA3MTAyYTkzOTY2MDA5ZGM3YzciLCJlbWFpbCI6InRlc3RhYmNAZ21haWwuY29tIiwiaWF0IjoxNTk2NjkzODUzLCJleHAiOjE1OTY2OTc0NTN9.AObGNMViPVmheYplYMR6-lvfmUVAu0TrXSticRKlc3E
+X-REQUEST-TYPE: GraphQL
+
+query {
+  events {
+    _id
+    title
+    description
+    price
+    date
+    creator{
+      _id
+      email
+    }
+  }
+}
+
+###
+POST http://localhost:8000/graphql
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjI3YzA3MTAyYTkzOTY2MDA5ZGM3YzciLCJlbWFpbCI6InRlc3RhYmNAZ21haWwuY29tIiwiaWF0IjoxNTk2NjkzODUzLCJleHAiOjE1OTY2OTc0NTN9.AObGNMViPVmheYplYMR6-lvfmUVAu0TrXSticRKlc3E
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  bookEvent(eventId:"5f214deacf6db667ac018554") {
+    _id
+    createdAt
+    updatedAt
+  }
+}
+
+###
+POST http://localhost:8000/graphql
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZjI3YzA3MTAyYTkzOTY2MDA5ZGM3YzciLCJlbWFpbCI6InRlc3RhYmNAZ21haWwuY29tIiwiaWF0IjoxNTk2NzA5OTU2LCJleHAiOjE1OTY3MTM1NTZ9.ifLbOJQnciyi2w4o8vilbE8Q1h-YmFm2TpgWsXb6lSw
+X-REQUEST-TYPE: GraphQL
+
+query {
+  bookings {
+    _id
+    createdAt
+    updatedAt
+    user{
+      email
+    }
+    event{
+      _id
+      title
+      description
+      date
     }
   }
 }

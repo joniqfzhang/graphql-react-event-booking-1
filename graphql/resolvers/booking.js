@@ -10,9 +10,9 @@ module.exports = {
       throw new Error('Unauthenticated!');
     }
     try {
-      const bookings = await Booking.find();
+      const bookings = await Booking.find({ user: req.userId });
       return bookings.map((booking) => {
-        //console.log('booking._doc:', booking._doc);
+        // console.log('booking._doc:', booking._doc);
         return transformBooking(booking);
       });
     } catch (err) {
@@ -45,7 +45,21 @@ module.exports = {
     }
     try {
       const booking = await Booking.findById(bookingId).populate('event');
-      const event = transformEvent(booking.event);
+      let event = booking.event;
+      try {
+        event = transformEvent(booking.event);
+      } catch (err) {
+        // deal with booking however event already deleted
+        event = {
+          _id: bookingId,
+          title: 'not exist any more',
+          description: 'not exist any more',
+          price: 0,
+          date: new Date(),
+          creator: {},
+        };
+      }
+
       await Booking.deleteOne({ _id: bookingId });
       return event;
     } catch (err) {
