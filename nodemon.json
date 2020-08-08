@@ -1,7 +1,7 @@
 {
   "env": {
-    "MONGO_USER": "user",
-    "MONGO_PASSWORD": "pass",
+    "MONGO_USER": "joni18",
+    "MONGO_PASSWORD": "joni18",
     "MONGO_DB": "enents-react-dev"
   }
 }
